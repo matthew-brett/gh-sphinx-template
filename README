@@ -1,0 +1,18 @@
+#########################
+Template for github pages
+#########################
+
+Add this to your sphinx Makefile::
+
+    gh-pages: clean html
+        git co gh-pages
+        git rm -r .
+        git checkout HEAD -- .gitignore README .nojekyll
+        cp -r _build/html/* .
+        git stage .
+        @echo 'Commit and push when ready or git reset --hard && git checkout master to revert'
+
+Done.
+
+
+.. vim: ft=rst
