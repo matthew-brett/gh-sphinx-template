@@ -2,6 +2,12 @@
 Template for github pages
 #########################
 
+Make sure you are on the ``master`` branch of this repository::
+
+    git checkout master
+
+Run ``sphinx-quickstart`` to start off a sphinx project.
+
 Add this to your sphinx Makefile::
 
     gh-pages: clean html
@@ -12,7 +18,23 @@ Add this to your sphinx Makefile::
         git stage .
         @echo 'Commit and push when ready or git reset --hard && git checkout master to revert'
 
-Done.
+Commit these new files.
 
+Test your pages build with::
+
+    make html
+
+in the normal sphinx way.  When they look OK then::
+
+    make gh-pages
+
+You are now on the ``gh-pages`` branch ready to commit and push to github.  Check the pages.  Then::
+
+    git commit -m 'Some message'
+    git push
+
+To go back to working on the sphinx source::
+
+    git checkout master
 
 .. vim: ft=rst
